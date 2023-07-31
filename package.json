@@ -1,0 +1,45 @@
+{
+  "name": "postgres-data-access-layer",
+  "version": "1.0.0",
+  "description": "Data Access Layer in Node.js with PostgreSQL",
+  "main": "main.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tsc && mocha dist/test",
+    "build": "tsc",
+    "format": "prettier -c ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liviaerxin/node-postgres-data-access-layer.git"
+  },
+  "keywords": [
+    "postgres",
+    "DAL",
+    "node.js"
+  ],
+  "author": "frankchen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liviaerxin/node-postgres-data-access-layer/issues"
+  },
+  "homepage": "https://github.com/liviaerxin/node-postgres-data-access-layer#readme",
+  "dependencies": {
+    "pg": "^8.11.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "@types/pg": "^8.10.2",
+    "@types/sinon": "^10.0.15",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "sinon": "^15.2.0",
+    "ts-node": "^10.9.1",
+    "tsx": "^3.12.7",
+    "typescript": "^5.1.6",
+    "pino-pretty": "^10.0.0"
+  }
+}
