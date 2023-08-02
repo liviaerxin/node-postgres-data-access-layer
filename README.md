@@ -10,29 +10,64 @@ There are two patterns to implement the DAL: **Active Record** and **Data Mapper
 
 This demo will choose **Data Mapper** pattern, and have modern niceties:
 
-- TypeScript.
-- Unit tests with a PostgreSQL database.
+- TypeScript in whole.
+- Tests using **mocha** and **chaia**, and integrating a PostgreSQL database.
+- Tests in CI/CD.
 
 Let's get started!
 
+The following example code is in [GitHub - liviaerxin/node-postgres-data-access-layer](https://github.com/liviaerxin/node-postgres-data-access-layer).
+
 ## Project Structure
 
+```sh
+./
+├── src
+│   ├── db
+│   │   ├── index.ts
+│   │   └── userDao.ts
+│   └── model
+│       └── User.ts
+├── test
+│   ├── test.ts
+│   └── userDao.ts
+├── package.json
+└── tsconfig.json
+```
 
 ## Starting the Project
 
-Initialize the Node.js project
+1. Initialize the Node.js project
 
 ```sh
 npx gitignore node
 npm init
 ```
 
-It will generate the ``
+It will generate the `package.json` file.
 
-Initialize the TypeScript
+2. Initialize the TypeScript
 
 ```sh
 npx tsc --init
 ```
 
 It will generate the `tsconfig.json` file.
+
+## Test
+
+In local, start a database in first. Using Docker is absolutely convenient and fast.
+
+Here the `docker-compose.yml` file is ready to use, just run,
+
+```sh
+docker compose up
+```
+
+Then run tests,
+
+```sh
+npm run test
+```
+
+> NOTE: Due to **mocha** doesn't run TypeScript directly, the test should be able to run after compiling `*.ts` to generate `*.js` by running `tsc && mocha dist/test`. Alternatively, the test can run without generating `*.js` files in such `dist` folder by running `mocha --require ts-node/register dist/test` which is required to install `ts-node` package.
